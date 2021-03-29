@@ -1,0 +1,13 @@
+from Bio import SeqIO
+import re
+file="/Users/mkthompson/Documents/human_genome.fna"
+finalCount = 0
+for record in SeqIO.parse(file, "fasta"):
+    print(record.id)
+    tempSeq = str(record.seq)
+    tempResults = re.finditer(r'(.GG)|(CC.)', tempSeq)
+    for i, result in enumerate(tempResults):
+        pass
+    chromCount = i + 1
+    finalCount = finalCount + chromCount
+print("Total Number of Hits: %d" % finalCount)
